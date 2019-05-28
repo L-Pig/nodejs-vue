@@ -64,7 +64,11 @@
       UserAction.query();
     },
     mounted(){
-      this.$socket.on('message', function(r){ console.log('msg:+++++++++++'+r); }) ;
+      var socket = io.connect('http://127.0.0.1:8888');
+      socket.on('message',function(data){
+        console.log('Got update from the server');
+        console.log("接收的数据", data);
+      });
     }
   }
 </script>
