@@ -62,6 +62,9 @@
     },
     created(){
       UserAction.query();
+    },
+    mounted(){
+      this.$socket.on('message', function(r){ console.log('msg:+++++++++++'+r); }) ;
     }
   }
 </script>
